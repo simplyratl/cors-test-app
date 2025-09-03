@@ -15,10 +15,10 @@ app.get("/no-cors", (c) => {
   );
 });
 
-// Ruti je definisan CORS
-app.get("/with-cors", cors({ origin: "zapadbanka.me" }), (c) => {
+// Ruti je definisan CORS samo za tačan origin https://www.zapadbanka.me
+app.get("/with-cors", cors({ origin: "https://www.zapadbanka.me" }), (c) => {
   return c.html(
-    "Kors je postavljen i definisan na zapadbanka.me. Ovo bi trebalo da radi, dok drugi domaini nece raditi"
+    "Kors je postavljen samo za https://www.zapadbanka.me. Ostali origin-i neće biti dozvoljeni."
   );
 });
 
