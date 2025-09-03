@@ -10,12 +10,14 @@ app.get("/", (c) => {
 
 // Route without CORS
 app.get("/no-cors", (c) => {
-  return c.html("1234");
+  return c.html(
+    "Kors nije postavljen i nije definisan. Ovo ne bi trebalo da radi"
+  );
 });
 
 // Route with CORS enabled for all origins
 app.get("/with-cors", cors({ origin: "*" }), (c) => {
-  return c.html("1234");
+  return c.html("Kors je postavljen i definisan na *. Ovo bi trebalo da radi");
 });
 
 serve(
